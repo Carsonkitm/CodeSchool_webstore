@@ -1,16 +1,31 @@
-const listen = require("listen");
+const API_URL = "https://fakestoreapi.com";
 
-
-var app = Vue({
-    el: "#app",
-    data:{
-        API_URL: "https://fakestoreapi.com",
-        list:[]
-    },
-
-    created: async function() {
-        let response = await fetch(API_URL + "/products");
-        let data = await response.json();
-        this.list = data
+Vue.component("product", {
+  template: `
+    <div>
+        <div>
+        <img v-bind:src="item.image">
+        {{ item.price }}
+        </div>
+    </div>
+    `,
+    props: {
+        "item": Object
     }
+});
+
+var app = new Vue({
+  el: "#app",
+  data: {
+    products: [],
+    page: "store",
+  },
+  methods: {
+    getProducts: async function () {
+      let response = await fetch(`${API_URL}/products`);
+      let data = await response.json();
+      this.list = data;
+      console.log("data", data);
+    },
+  },
 });

@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>WebStore</title>
-    </head>
-    <body>
-        <div id="app">
+  <head>
+    <title>WebStore</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Welcome Page -->
+      <div v-if="page == 'welcome'" id="welcome-page"></div>
 
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-        <script src="app.js"></script>
-    </body>
+      <!-- Store Page -->
+      <div v-else="page == 'store'" id="store-page">
+        <product v-for="(product, index) in products"
+                 v-bind:item="product"
+                 v-bind:key="index">
+        </product>
+      </div>
+
+      <!-- Checkout Page -->
+      <div v-else="page == 'checkout'"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
