@@ -4,7 +4,8 @@ Vue.component("product", {
   template: `
     <div>
         <div>
-        <img v-bind:src="item.image">
+        {{ item.title}}
+        <img v-v-bind:src="item.image" v-bind:style="{width : 100px}">
         {{ item.price }}
         </div>
     </div>
@@ -24,7 +25,7 @@ var app = new Vue({
     getProducts: async function () {
       let response = await fetch(`${API_URL}/products`);
       let data = await response.json();
-      this.list = data;
+      this.products = data;
       console.log("data", data);
     },
   },
