@@ -5,7 +5,7 @@ Vue.component("product", {
     <div>
         <div>
         {{ item.title}}
-        <img v-v-bind:src="item.image" v-bind:style="{width : 100px}">
+        <img v-bind:src="item.image">
         {{ item.price }}
         </div>
     </div>
