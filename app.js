@@ -2,13 +2,17 @@ const API_URL = "https://fakestoreapi.com";
 
 Vue.component("product", {
   template: `
-    <div>
-        <div>
-        {{ item.title}}
-        <img v-bind:src="item.image">
-        {{ item.price }}
+  <div>
+      <div class="product_container>
+        <div class="img_container>
+          <img class="product_img" v-bind:src="item.image">
         </div>
-    </div>
+        <div class="product_description">
+          {{ item.title }}
+          {{ item.price }}
+        </div>
+      </div>
+  </div>
     `,
     props: {
         "item": Object
@@ -19,14 +23,21 @@ var app = new Vue({
   el: "#app",
   data: {
     products: [],
-    page: "store",
+    page: "welcome"
   },
+
   methods: {
     getProducts: async function () {
       let response = await fetch(`${API_URL}/products`);
       let data = await response.json();
-      this.products = data;
-      console.log("data", data);
-    },
+      this.products = data
   },
+    setPage: function(new_page) {
+      this.page = new_page;
+      console.log(`go to ${this.page}`);
+    }
+  },
+  created: function (){
+    this.getProducts()
+  }
 });

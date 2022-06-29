@@ -1,0 +1,28 @@
+/* =========================== WELCOME PAGE ===========================*/
+#welcome_background {
+    background-color: lightgray;
+    height: 10rem;
+}
+
+#welcome_button {
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 6rem;
+    height: 3rem;
+}
+
+#welcome_page{
+    text-align: center;
+}
+
+
+.product_container{
+    width: 10rem;
+}
+.img_container{
+    width: 5rem;
+}
+.product_img{
+    width: 5rem;
+}

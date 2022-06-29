@@ -2,14 +2,18 @@
 <html>
   <head>
     <title>WebStore</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="app">
       <!-- Welcome Page -->
-      <div v-if="page == 'welcome'" id="welcome-page"></div>
-
+      <div v-if="page == 'welcome'" id="welcome_page">
+      <div id="welcome_background">
+          <button @click="setPage('store')" id="welcome_button">Welcome</button>
+        </div>
+      </div>
       <!-- Store Page -->
-      <div v-else="page == 'store'" id="store-page">
+      <div v-else-if="page == 'store'" id="store_page">
         <product v-for="(product, index) in products"
                  v-bind:item="product"
                  v-bind:key="index">
@@ -17,7 +21,7 @@
       </div>
 
       <!-- Checkout Page -->
-      <div v-else="page == 'checkout'"></div>
+      <div v-else-if="page == 'checkout'"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="app.js"></script>
